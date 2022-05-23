@@ -12,7 +12,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @article.user.first_name %>
+  <%= @article.user.first_name %> <%= @article.user.last_name %>
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
