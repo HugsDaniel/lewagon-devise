@@ -12,7 +12,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body class="container">
+    <nav>
+      <% if user_signed_in? %>
+        <%= link_to "Mon Dashboard", "#" %>
+        <%#= image_tag current_user.avatar %>
+        <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Connexion", new_user_session_path %>
+      <% end %>
+    </nav>
+
+    <%= render 'shared/flashes' %>
     <%= yield %>
   </body>
 </html>
